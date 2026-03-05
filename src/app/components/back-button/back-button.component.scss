@@ -1,23 +1,31 @@
 .back-button {
-    --color: #000000;
-    --padding-end: 8px;
-    margin: 0;
-    height: 48px;
-    width: 48px;
-    --border-radius: 12px;
-    transition: all 0.2s ease-in-out;
+    --color: var(--text-primary);
+    --padding-start: 0;
+    --padding-end: 0;
+    margin: 8px 0;
+    height: 44px;
+    width: 44px;
+    --border-radius: 14px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
     ion-icon {
-        font-size: 24px;
-        font-weight: bold;
+        font-size: 20px;
+        font-weight: 500;
     }
 
     &:hover {
-        --background: rgba(0, 0, 0, 0.05);
+        transform: translateX(-4px);
+        border-color: var(--accent-primary);
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
     }
 
     &:active {
-        --background: rgba(0, 0, 0, 0.1);
-        transform: scale(0.95);
+        transform: scale(0.95) translateX(-4px);
     }
 }

@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { ButtonComponent } from 'src/app/components/button/button.component';
 import { EmailInputComponent } from 'src/app/components/email-input/email-input.component';
 import { PasswordInputComponent } from 'src/app/components/password-input/password-input.component';
-
+import { RouterLink } from '@angular/router';
 import { BackButtonComponent } from 'src/app/components/back-button/back-button.component';
 
 @Component({
@@ -13,7 +13,7 @@ import { BackButtonComponent } from 'src/app/components/back-button/back-button.
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
   standalone: true,
-  imports: [IonicModule, ButtonComponent, CommonModule, FormsModule, ReactiveFormsModule, EmailInputComponent, PasswordInputComponent, BackButtonComponent]
+  imports: [RouterLink, IonicModule, ButtonComponent, CommonModule, FormsModule, ReactiveFormsModule, EmailInputComponent, PasswordInputComponent, BackButtonComponent]
 })
 export class RegisterPage implements OnInit {
   currentStep: number = 1;
@@ -35,6 +35,15 @@ export class RegisterPage implements OnInit {
 
   prevStep() {
     if (this.currentStep > 1) this.currentStep--;
+  }
+
+  getStepTitle(): string {
+    switch (this.currentStep) {
+      case 1: return 'Email Verification';
+      case 2: return 'Personal Information';
+      case 3: return 'Secure Account';
+      default: return '';
+    }
   }
 
 }

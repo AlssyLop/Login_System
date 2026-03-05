@@ -1,13 +1,90 @@
-.footer-link {
-    display: flex;
-    align-items: center;
-    justify-content: center; // Centra todo el bloque
-    font-size: 14px;
-  
-    .link-button {
-      --padding-start: 4px; // Reduce el espacio entre el texto y el botón
-      text-transform: lowercase; // Forza minúsculas (anula el estilo de Ionic)
-      font-weight: bold;
-      height: auto; // Ajusta el alto para que no empuje el texto
+ion-content {
+  --background: var(--bg-primary);
+}
+
+.page-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 24px;
+  background: radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.1), transparent 40%),
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.05), transparent 40%);
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 400px;
+  z-index: 2;
+}
+
+.header-section {
+  margin: 32px 0;
+  text-align: left;
+
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(to right, #fff, #a1a1aa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+  }
+}
+
+.form-section {
+  padding: 32px 24px;
+  margin-bottom: 32px;
+}
+
+.forgot-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin: -8px 0 24px;
+
+  .forgot-btn {
+    --color: var(--text-muted);
+    font-size: 13px;
+    text-transform: none;
+    letter-spacing: 0.3px;
+    height: auto;
+    --padding-end: 0;
+
+    &:hover {
+      --color: var(--accent-primary);
     }
   }
+}
+
+.submit-wrapper {
+  margin-top: 8px;
+}
+
+.footer-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+
+  .link-button {
+    --padding-start: 8px;
+    --color: var(--accent-primary);
+    text-transform: none;
+    font-weight: 600;
+    height: auto;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

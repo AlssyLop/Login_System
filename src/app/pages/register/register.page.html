@@ -1,58 +1,84 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="page-container animate-fade-in">
+    <div class="background-overlay"></div>
 
-<ion-content>
-  <app-back-button link="/auth-home" style="margin: 16px 0 0 16px; display: block;"></app-back-button>
-  <form [formGroup]="registerForm" class="ion-margin ion-padding">
+    <div class="content-wrapper">
+      <app-back-button link="/auth-home"></app-back-button>
 
-    <div *ngIf="currentStep === 1">
-      <app-email-input formControlName="email" style="margin-top: 16px; display: block;"></app-email-input>
-      <ion-note slot="error" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid"
-        color="danger">
-        Ingresa email válido. Campo requerido
-      </ion-note>
-      <app-button label="Continue" (onClick)="nextStep()"
-        [disabled]="!!registerForm.get('email')?.invalid"></app-button>
-    </div>
+      <div class="header-section">
+        <h1 class="display-font">Create Account</h1>
+        <p>Step {{ currentStep }} of 3: {{ getStepTitle() }}</p>
 
-    <div *ngIf="currentStep === 2">
-      <div class="input-wrapper">
-        <ion-label class="input-label">First Name</ion-label>
-        <div class="input-container">
-          <ion-input type="text" formControlName="firstName" placeholder="Enter your first name" class="custom-input">
-          </ion-input>
+        <div class="progress-bar">
+          <div class="progress-dot" [class.active]="currentStep >= 1"></div>
+          <div class="progress-line" [class.active]="currentStep >= 2"></div>
+          <div class="progress-dot" [class.active]="currentStep >= 2"></div>
+          <div class="progress-line" [class.active]="currentStep >= 3"></div>
+          <div class="progress-dot" [class.active]="currentStep >= 3"></div>
         </div>
       </div>
-      <ion-note slot="error" *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.invalid"
-        color="danger">
-        Ingresa un nombre válido. Campo requerido
-      </ion-note>
 
-      <div class="input-wrapper">
-        <ion-label class="input-label">Last Name</ion-label>
-        <div class="input-container">
-          <ion-input type="text" formControlName="lastName" placeholder="Enter your last name" class="custom-input">
-          </ion-input>
-        </div>
+      <div class="glass-card form-section">
+        <form [formGroup]="registerForm">
+
+          <!-- Step 1: Email -->
+          <div *ngIf="currentStep === 1" class="step-content animate-fade-in">
+            <app-email-input formControlName="email" label="Email Address"
+              placeholder="Enter your email"></app-email-input>
+            <div class="error-msg" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
+              Please enter a valid email address.
+            </div>
+            <div class="submit-wrapper">
+              <app-button label="Continue" (click)="nextStep()"
+                [disabled]="!!registerForm.get('email')?.invalid"></app-button>
+            </div>
+          </div>
+
+          <!-- Step 2: Personal Info -->
+          <div *ngIf="currentStep === 2" class="step-content animate-fade-in">
+            <div class="input-wrapper">
+              <ion-label class="input-label">First Name</ion-label>
+              <div class="input-container">
+                <ion-input type="text" formControlName="firstName" placeholder="Enter your first name"
+                  class="custom-input"></ion-input>
+              </div>
+            </div>
+
+            <div class="input-wrapper">
+              <ion-label class="input-label">Last Name</ion-label>
+              <div class="input-container">
+                <ion-input type="text" formControlName="lastName" placeholder="Enter your last name"
+                  class="custom-input"></ion-input>
+              </div>
+            </div>
+
+            <div class="submit-wrapper">
+              <app-button label="Continue" (click)="nextStep()"
+                [disabled]="!!registerForm.get('firstName')?.invalid || !!registerForm.get('lastName')?.invalid"></app-button>
+            </div>
+          </div>
+
+          <!-- Step 3: Password -->
+          <div *ngIf="currentStep === 3" class="step-content animate-fade-in">
+            <app-password-input label="Create Password" formControlName="password"
+              placeholder="Min 6 characters"></app-password-input>
+            <app-password-input label="Confirm Password" formControlName="password"
+              placeholder="Repeat your password"></app-password-input>
+
+            <div class="submit-wrapper">
+              <app-button label="Register Now" link="/home"></app-button>
+            </div>
+          </div>
+
+        </form>
       </div>
-      <ion-note slot="error" *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.invalid"
-        color="danger">
-        Ingresa un apellido válido. Campo requerido
-      </ion-note>
 
-      <app-button label="Continue" (onClick)="nextStep()"
-        [disabled]="!!registerForm.get('firstName')?.invalid || !!registerForm.get('lastName')?.invalid"></app-button>
+      <div class="footer-link">
+        <span>Already have an account?</span>
+        <ion-button fill="clear" routerLink="/login" class="link-button">
+          Sign In
+        </ion-button>
+      </div>
     </div>
-
-    <div *ngIf="currentStep === 3">
-      <app-password-input label="Enter your password" formControlName="password"
-        style="margin-top: 16px; display: block;"></app-password-input>
-      <app-password-input label="Re-Enter your password" formControlName="password"
-        style="margin-top: 16px; display: block;"></app-password-input>
-      <app-button label="Register" link="/home"></app-button>
-    </div>
-  </form>
+  </div>
 </ion-content>

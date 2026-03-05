@@ -1,31 +1,41 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="page-container animate-fade-in">
+    <div class="background-overlay"></div>
 
-<ion-content>
-  <form [formGroup]="loginForm" class="ion-padding">
-    <app-back-button link="/auth-home"></app-back-button>
-    <div class="ion-text-start ion-no-padding">
-      <ion-text class="ion-margin">
-        <p>Please login to your account.</p>
-      </ion-text>
-    </div>
-    <app-email-input formControlName="email"></app-email-input>
-    <app-password-input formControlName="password" style="margin-top: 16px; display: block;"></app-password-input>
-    <div class="ion-text-right">
-      <ion-button fill="clear" routerLink="/forgot" size="small">
-        ¿Olvidaste tu contraseña?
-      </ion-button>
-    </div>
-    <app-button label="Login" link="/home"></app-button>
-  </form>
+    <div class="content-wrapper">
+      <app-back-button link="/auth-home"></app-back-button>
 
-  <div class="footer-link">
-    <span>Don't have an account?</span>
-    <ion-button fill="clear" routerLink="/register" class="link-button">
-      sign-up
-    </ion-button>
+      <div class="header-section">
+        <h1 class="display-font">Welcome Back</h1>
+        <p>Sign in to continue your secure journey.</p>
+      </div>
+
+      <div class="glass-card form-section">
+        <form [formGroup]="loginForm">
+          <app-email-input formControlName="email" label="Email Address"
+            placeholder="Enter your email"></app-email-input>
+
+          <app-password-input formControlName="password" label="Password"
+            placeholder="Enter your password"></app-password-input>
+
+          <div class="forgot-wrapper">
+            <ion-button fill="clear" routerLink="/forgot" size="small" class="forgot-btn">
+              Forgot password?
+            </ion-button>
+          </div>
+
+          <div class="submit-wrapper">
+            <app-button label="Sign In" link="/home" ></app-button>
+          </div>
+        </form>
+      </div>
+
+      <div class="footer-link">
+        <span>Don't have an account?</span>
+        <ion-button fill="clear" routerLink="/register" class="link-button">
+          Sign Up
+        </ion-button>
+      </div>
+    </div>
   </div>
 </ion-content>

@@ -1,20 +1,28 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Login & Sign-up</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="hero-container animate-fade-in">
+    <div class="background-overlay"></div>
 
-<ion-content>
-  <div>
-    <ion-text color="primary">
-      <p>Security authentication platform, intuitive login and registration experience</p>
-    </ion-text>
+    <div class="content-wrapper">
+      <div class="logo-section">
+        <div class="logo-icon">
+          <ion-icon name="shield-checkmark-outline"></ion-icon>
+        </div>
+        <h1 class="display-font">LuxeAuth</h1>
+        <p class="subtitle">Elevating your digital security with elegance.</p>
+      </div>
+
+      <div class="glass-card action-section">
+        <h2 class="display-font">Welcome</h2>
+        <p>Expertly crafted authentication for the modern era.</p>
+
+        <div class="button-group">
+          <app-button label="Sign In" link="/login"></app-button>
+          <div class="divider">
+            <span>or</span>
+          </div>
+          <app-button label="Create Account" link="/register" class="outline-btn"></app-button>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div style="padding: 20px;">
-    <app-button label="Login" link="/login"></app-button>
-    <app-button label="Sign-up" link="/register"></app-button>
-  </div>
-
-
 </ion-content>

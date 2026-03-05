@@ -1,2 +1,30 @@
+// Midnight Onyx Luxury Theme
+:root {
+    /** Midnight Onyx Palette **/
+    --bg-primary: #0A0A0B;
+    --bg-secondary: #121214;
+    --bg-tertiary: #1A1A1D;
+
+    --accent-primary: #8B5CF6;
+    --accent-primary-glow: rgba(139, 92, 246, 0.4);
+    --accent-secondary: #22D3EE;
+
+    --text-primary: #FFFFFF;
+    --text-secondary: #A1A1AA;
+    --text-muted: #71717A;
+
+    /** Glassmorphism **/
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-blur: blur(12px);
+
+    /** Typography **/
+    --font-display: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /** Transitions **/
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 // For information on how to create your own theme, please refer to:
 // https://ionicframework.com/docs/theming/
