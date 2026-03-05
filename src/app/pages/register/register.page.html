@@ -5,38 +5,54 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="loginForm">
-    <ion-item fill="outline">
-      <ion-label position="floating">First Name <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input formControlName="firstName" type="text"></ion-input>
-    </ion-item>
-    <ion-note slot="error" *ngIf="loginForm.get('firstName')?.touched && loginForm.get('firstName')?.invalid"
-      color="danger">
-      Ingresa un nombre válido. Campo requerido
-    </ion-note>
+  <app-back-button link="/auth-home" style="margin: 16px 0 0 16px; display: block;"></app-back-button>
+  <form [formGroup]="registerForm" class="ion-margin ion-padding">
 
-    <ion-item fill="outline" class="ion-margin-top">
-      <ion-label position="floating">Last Name <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input formControlName="lastName" type="text"></ion-input>
-    </ion-item>
-    <ion-note slot="error" *ngIf="loginForm.get('lastName')?.touched && loginForm.get('lastName')?.invalid"
-      color="danger">
-      Ingresa un apellido válido. Campo requerido
-    </ion-note>
+    <div *ngIf="currentStep === 1">
+      <app-email-input formControlName="email" style="margin-top: 16px; display: block;"></app-email-input>
+      <ion-note slot="error" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid"
+        color="danger">
+        Ingresa email válido. Campo requerido
+      </ion-note>
+      <app-button label="Continue" (onClick)="nextStep()"
+        [disabled]="!!registerForm.get('email')?.invalid"></app-button>
+    </div>
 
-    <app-email-input formControlName="email" style="margin-top: 16px; display: block;"></app-email-input>
-    <ion-note slot="error" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" color="danger">
-      Ingresa un apellido válido. Campo requerido
-    </ion-note>
+    <div *ngIf="currentStep === 2">
+      <div class="input-wrapper">
+        <ion-label class="input-label">First Name</ion-label>
+        <div class="input-container">
+          <ion-input type="text" formControlName="firstName" placeholder="Enter your first name" class="custom-input">
+          </ion-input>
+        </div>
+      </div>
+      <ion-note slot="error" *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.invalid"
+        color="danger">
+        Ingresa un nombre válido. Campo requerido
+      </ion-note>
 
-    <app-password-input label="Enter your password" formControlName="password" style="margin-top: 16px; display: block;"></app-password-input>
-    <app-password-input label="Re-Enter your password" formControlName="password" style="margin-top: 16px; display: block;"></app-password-input>
-    
-    <ion-note slot="error" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid"
-      color="danger">
-      Ingresa un apellido válido. Campo requerido
-    </ion-note>
+      <div class="input-wrapper">
+        <ion-label class="input-label">Last Name</ion-label>
+        <div class="input-container">
+          <ion-input type="text" formControlName="lastName" placeholder="Enter your last name" class="custom-input">
+          </ion-input>
+        </div>
+      </div>
+      <ion-note slot="error" *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.invalid"
+        color="danger">
+        Ingresa un apellido válido. Campo requerido
+      </ion-note>
 
-    <app-button label="Register" link="/login"></app-button>
+      <app-button label="Continue" (onClick)="nextStep()"
+        [disabled]="!!registerForm.get('firstName')?.invalid || !!registerForm.get('lastName')?.invalid"></app-button>
+    </div>
+
+    <div *ngIf="currentStep === 3">
+      <app-password-input label="Enter your password" formControlName="password"
+        style="margin-top: 16px; display: block;"></app-password-input>
+      <app-password-input label="Re-Enter your password" formControlName="password"
+        style="margin-top: 16px; display: block;"></app-password-input>
+      <app-button label="Register" link="/home"></app-button>
+    </div>
   </form>
 </ion-content>
