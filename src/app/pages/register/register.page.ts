@@ -4,13 +4,14 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, FormsModule, Validators } 
 import { IonicModule } from '@ionic/angular';
 import { ButtonComponent } from 'src/app/components/button/button.component';
 import { EmailInputComponent } from 'src/app/components/email-input/email-input.component';
+import { PasswordInputComponent } from 'src/app/components/password-input/password-input.component';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
   standalone: true,
-  imports: [IonicModule, ButtonComponent, CommonModule, FormsModule, ReactiveFormsModule, EmailInputComponent]
+  imports: [IonicModule, ButtonComponent, CommonModule, FormsModule, ReactiveFormsModule, EmailInputComponent, PasswordInputComponent]
 })
 export class RegisterPage implements OnInit {
   loginForm!: FormGroup

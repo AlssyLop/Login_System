@@ -29,10 +29,9 @@
       Ingresa un apellido válido. Campo requerido
     </ion-note>
 
-    <ion-item>
-      <ion-label position="floating">Password <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input required formControlName="password" type="text"></ion-input>
-    </ion-item>
+    <app-password-input label="Enter your password" formControlName="password" style="margin-top: 16px; display: block;"></app-password-input>
+    <app-password-input label="Re-Enter your password" formControlName="password" style="margin-top: 16px; display: block;"></app-password-input>
+    
     <ion-note slot="error" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid"
       color="danger">
       Ingresa un apellido válido. Campo requerido

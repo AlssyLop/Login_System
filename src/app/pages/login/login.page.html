@@ -12,10 +12,7 @@
       </ion-text>
     </div>
     <app-email-input formControlName="email"></app-email-input>
-    <ion-item>
-      <ion-label position="floating">Password <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input required formControlName="password" type="text"></ion-input>
-    </ion-item>
+    <app-password-input formControlName="password" style="margin-top: 16px; display: block;"></app-password-input>
     <div class="ion-text-right">
       <ion-button fill="clear" routerLink="/forgot" size="small">
         ¿Olvidaste tu contraseña?
