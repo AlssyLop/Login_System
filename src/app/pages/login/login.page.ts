@@ -6,13 +6,14 @@ import { ButtonComponent } from 'src/app/components/button/button.component';
 import { EmailInputComponent } from 'src/app/components/email-input/email-input.component';
 import { PasswordInputComponent } from 'src/app/components/password-input/password-input.component';
 import { RouterLink } from '@angular/router';
+import { BackButtonComponent } from 'src/app/components/back-button/back-button.component';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, FormsModule, IonicModule, CommonModule, ButtonComponent, EmailInputComponent, PasswordInputComponent]
+  imports: [BackButtonComponent, RouterLink, ReactiveFormsModule, FormsModule, IonicModule, CommonModule, ButtonComponent, EmailInputComponent, PasswordInputComponent]
 })
 export class LoginPage implements OnInit {
   loginForm!: FormGroup;
