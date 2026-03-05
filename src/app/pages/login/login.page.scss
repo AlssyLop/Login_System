@@ -1,0 +1,13 @@
+.footer-link {
+    display: flex;
+    align-items: center;
+    justify-content: center; // Centra todo el bloque
+    font-size: 14px;
+  
+    .link-button {
+      --padding-start: 4px; // Reduce el espacio entre el texto y el botón
+      text-transform: lowercase; // Forza minúsculas (anula el estilo de Ionic)
+      font-weight: bold;
+      height: auto; // Ajusta el alto para que no empuje el texto
+    }
+  }

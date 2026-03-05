@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+     <form [formGroup]="loginForm">
+      <div class="ion-text-start ion-padding">
+        <ion-text>
+          <p>Please login to your account.</p>
+        </ion-text>
+      </div>
+      <ion-item>
+        <ion-label position="floating">E-Mail <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required formControlName="email" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required formControlName="password" type="text"></ion-input>
+      </ion-item>
+      <div class="ion-text-right">
+        <ion-button fill="clear" routerLink="/forgot" size="small">
+          ¿Olvidaste tu contraseña?
+        </ion-button>
+      </div>
+      <app-button label="Login" link="/home"></app-button>
+     </form>
+     
+     <div class="footer-link">
+      <span>Don't have an account?</span>
+      <ion-button fill="clear" routerLink="/register" class="link-button">
+        sign-up
+      </ion-button>
+    </div>    
+</ion-content>
