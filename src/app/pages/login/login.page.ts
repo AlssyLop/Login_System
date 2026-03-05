@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormsModule, FormGroup, Validators, FormBuilder} from '@angular/forms';
+import { ReactiveFormsModule, FormsModule, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { ButtonComponent } from 'src/app/components/button/button.component';
+import { EmailInputComponent } from 'src/app/components/email-input/email-input.component';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -10,7 +11,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, FormsModule, IonicModule, CommonModule, ButtonComponent]
+  imports: [RouterLink, ReactiveFormsModule, FormsModule, IonicModule, CommonModule, ButtonComponent, EmailInputComponent]
 })
 export class LoginPage implements OnInit {
   loginForm!: FormGroup;
